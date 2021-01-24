@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title>Plane Range Map</title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2022.2">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+  </style>
+</head>
+<body>
+    <center><h2>Plane Range Map</h2></center>
+    <center><div id="ShowImage"></div></center>
+    <form method="POST" action="generate/" id="GenImgForm">
+        {% csrf_token %}
+    <center><select name="Aircraft" id="Aircraft">
+
+<option value="A318-100">A318-100</option>
+            <option value="A319-100">A319-100</option>
+            <option value="A319-100N">A319-100N</option>
+            <option value="A320-200">A320-200</option>
+            <option value="A320-200N">A320-200N</option>
+            <option value="A321-100">A321-100</option>
+            <option value="A321-200">A321-200</option>
+            <option value="A321-200N">A321-200N</option>
+            <option value="A321-200NX">A321-200NX</option>
+            <option value="A300-600R">A300-600R</option>
+            <option value="A310-200">A310-200</option>
+            <option value="A310-300">A310-300</option>
+            <option value="A330-200">A330-200</option>
+            <option value="A330-800N">A330-800N</option>
+            <option value="A330-300">A330-300</option>
+            <option value="A330-900N">A330-900N</option>
+            <option value="A340-200">A340-200</option>
+            <option value="A340-300">A340-300</option>
+            <option value="A340-500">A340-500</option>
+            <option value="A340-600">A340-600</option>
+            <option value="A350-800">A350-800</option>
+            <option value="A350-900">A350-900</option>
+            <option value="A350-900ULR">A350-900ULR</option>
+            <option value="A350-1000">A350-1000</option>
+            <option value="A380-800">A380-800</option>
+            <option value="72-500">72-500</option>
+            <option value="72-700">72-700</option>
+            <option value="717-200">717-200</option>
+            <option value="737-300">737-300</option>
+            <option value="737-400">737-400</option>
+            <option value="737-500">737-500</option>
+            <option value="737-600">737-600</option>
+            <option value="737-700">737-700</option>
+            <option value="737 MAX 7">737 MAX 7</option>
+            <option value="737-800">737-800</option>
+            <option value="737 MAX 8">737 MAX 8</option>
+            <option value="737 MAX 8-200">737 MAX 8-200</option>
+            <option value="737-900">737-900</option>
+            <option value="737-900ER">737-900ER</option>
+            <option value="737 MAX 9">737 MAX 9</option>
+            <option value="737 MAX 10">737 MAX 10</option>
+            <option value="757-200">757-200</option>
+            <option value="757-300">757-300</option>
+            <option value="767-200">767-200</option>
+            <option value="767-200ER">767-200ER</option>
+            <option value="767-300">767-300</option>
+            <option value="767-300ER">767-300ER</option>
+            <option value="767-400ER">767-400ER</option>
+            <option value="787-8">787-8</option>
+            <option value="787-9">787-9</option>
+            <option value="787-10">787-10</option>
+            <option value="777-200">777-200</option>
+            <option value="777-200ER">777-200ER</option>
+            <option value="777-200LR">777-200LR</option>
+            <option value="777-300">777-300</option>
+            <option value="777-300ER">777-300ER</option>
+            <option value="777-8">777-8</option>
+            <option value="777-9">777-9</option>
+            <option value="747-400">747-400</option>
+            <option value="747-400ER">747-400ER</option>
+            <option value="747-8I">747-8I</option>
+            <option value="CRJ 100">CRJ 100</option>
+            <option value="CRJ 200">CRJ 200</option>
+            <option value="CRJ 440">CRJ 440</option>
+            <option value="CRJ 700">CRJ 700</option>
+            <option value="CRJ 700 NextGen">CRJ 700 NextGen</option>
+            <option value="CRJ 900">CRJ 900</option>
+            <option value="CRJ 900 NextGen">CRJ 900 NextGen</option>
+            <option value="CRJ1000 NextGen">CRJ1000 NextGen</option>
+            <option value="A220-100">A220-100</option>
+            <option value="A220-300">A220-300</option>
+            <option value="Dash-8">Dash-8</option>
+            <option value="ERJ-135">ERJ-135</option>
+            <option value="ERJ-140">ERJ-140</option>
+            <option value="ERJ-145">ERJ-145</option>
+            <option value="170">170</option>
+            <option value="175">175</option>
+            <option value="175-E2">175-E2</option>
+            <option value="190">190</option>
+            <option value="190-E2">190-E2</option>
+            <option value="195">195</option>
+            <option value="195-E2">195-E2</option>
+            <option value="70">70</option>
+            <option value="100">100</option>
+        </select><input type="text" id="fname" name="Airport Code" placeholder="IATA Airport Code"><br><br> <button onclick="update()">Submit</button></center>
+        </form>
+
+    <!-- Make an empty div where the returned image will be shown -->
+    <div id="ShowImage"></div>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.js"></script>
+
+
+    <script type ="text/javascript">
+    function update() {
+
+        var options = {
+            target: '#ShowImage',
+        };
+        $("#GenImgForm").ajaxForm(options);
+            return false;
+        }
+    </script>
+</body>
+</html>
