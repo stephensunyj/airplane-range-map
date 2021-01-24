@@ -1,5 +1,5 @@
 ## Hack@Brown 2021 Project
-## [Plane Range App](jneronha.pythonanywhere.com/rangeapp)
+## [Plane Range App](http://jneronha.pythonanywhere.com/rangeapp)
 
 #### Created by Jay-Young Cho, Joshua Neronha, and Stephen Sun
 ##### Brown University School of Engineering
