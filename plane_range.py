@@ -52,8 +52,8 @@ def aircraft_range(aircraft: str) -> float:
  # A basic map
 def plot_range(airport: str,aircraft: str):
     aircraft_ran = aircraft_range(aircraft)
-    airport_lat = airport_coord(airport)[0]
-    airport_lon = airport_coord(airport)[1]
+    airport_lat = airport_coord(airport.upper())[0]
+    airport_lon = airport_coord(airport.upper())[1]
     # if aircraft_ran < (111*(90-abs(airport_lat))):
     #     m=Basemap(llcrnrlon=max(-180,airport_lon-(15/1000*aircraft_ran)), llcrnrlat=max(-90,airport_lat-(15/1000*aircraft_ran)),urcrnrlon=min(180,airport_lon+(15/1000*aircraft_ran)),urcrnrlat=min(90,airport_lat+(15/1000*aircraft_ran)),resolution='l')
     # elif aircraft_ran < 8000:
