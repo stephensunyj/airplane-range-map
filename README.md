@@ -1,15 +1,17 @@
 ## Hack@Brown 2021 Project
 ## [Plane Range App](jneronha.pythonanywhere.com/rangeapp)
 
-#### Created by Jay-Young Cho, Joshua Neronha, and Stephen Sun
+#### Created by [Jay-Young Cho]<jay_young-cho@brown.edu>, [Joshua Neronha]<jneronha@brown.edu>, and [Stephen Sun]<yuejun_sun@brown.edu>
+####
 #### Brown University School of Engineering
 ###### January 23-24, 2021
 
 This web application is built on Python and its libraries and published using Django on PythonAnywhere as a hosting service at (jneronha.pythonanywhere.com/rangeapp) and (planerange.me).
 
 *plane_range.py: the key Python script which contains a number of plotting frameworks and functions in addition to data cleaning and organization. This code powers the app and its functions can be used in a standalone fashion to generate the plots on the website.
-*
-
+*index.html: this is the HTML script powering the Django website
+*views.py: this script controls the Django script and connects index.html to plane_range.py
+*manage.py / settings.py / urls.py: vital but uninteresting script forming the Django backend
 
 
 #### References and Source Material:
