@@ -76,9 +76,8 @@ def plot_range(airport: str,aircraft: str):
     else:
         plt.title("Projection type: Azimuthal Equidistant Projection")
         m=Basemap(projection="aeqd", lon_0 = airport_lon, lat_0 = airport_lat,resolution='c')
-    m.drawmapboundary(fill_color='#A6CAE0', linewidth=0)
-    m.fillcontinents(color="#008080", lake_color = '#A6CAE0')
-    m.drawcoastlines(linewidth=0.2, color="black")
+    m.drawlsmask(land_color="#008080", ocean_color = '#A6CAE0')
+    m.drawcoastlines(linewidth=0.1, color="black")
     m.plot(airport_lon,airport_lat,marker='o',color='orange',latlon=True)
 
     (x,y) = zip(*circle(m,airport_lon,airport_lat,radius=aircraft_ran))
@@ -88,7 +87,7 @@ def plot_range(airport: str,aircraft: str):
     #plt.savefig("map.png",dpi=400)
     #sio = io.StringIO()
     sio = io.BytesIO()
-    plt.savefig(sio, format="png")
+    plt.savefig(sio, format="png",dpi=300)
     #sio.seek(0)
     pic_hash = b64encode(sio.getvalue()).decode("utf-8").replace("\n", "")
     plt.close()

@@ -26,7 +26,7 @@ def generate_image(request):
         #encoded_img = sio.getvalue().encode('Base64') # On Python 3x, use
         #encoded_img = base64.b64encode(sio.getvalue())
         #return HttpResponse('<img src="'+imuri+ '" />')
-        return HttpResponse('<img src="data:image/png;base64,%s" />' %encoded_img)
+        return HttpResponse('<img src="data:image/png;base64,%s" width="700" height="525"/>' %encoded_img)
         #return HttpResponse('<img src="data:image/png;base64, {{ img_encoded }}" alt="somealt" />')
     else:
         # Do something ...
